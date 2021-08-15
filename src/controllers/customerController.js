@@ -19,6 +19,23 @@
         }
     }
 
+    controller.distritoList = function (req, res)
+    {
+        try {
+            db.query('select * from distrito',(errors,distrito) =>
+            {
+                if(errors){
+                    throw errors;
+                }
+                res.render('users',{
+                    data: distrito
+                });
+            });
+        }catch (e) {
+
+        }
+    }
+
     module.exports = controller;
 
 
